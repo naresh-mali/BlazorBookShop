@@ -1,4 +1,4 @@
-﻿@page "/Books"
+﻿@* @page "/Books" *@
 <h3>Book List</h3>
 @if (bookList != null)
 {
@@ -7,10 +7,10 @@
         {
             <p><b>@book.Title</b></p>
         }
-        @for (int i = 0; i < bookList.Count; i++)
+        @* @for (int i = 0; i < bookList.Count; i++)
         {
             <p><b>@(i + 1). @bookList[i].Title</b></p>
-        }
+        } *@
     </div>
 }
 else
@@ -19,23 +19,7 @@ else
 }
 
 @code {
-    List<Book> bookList;
-
-    protected async override Task OnInitializedAsync()
-    {
-        await Task.Delay(3000);
-        bookList = new List<Book>
-        {
-            new Book{Id=1,Title="C# Programming"},
-            new Book{Id=2,Title="Java Programming"},
-            new Book{Id=3,Title="Python Programming"},
-            new Book{Id=4,Title="C++ Programming"},
-            new Book{Id=5,Title="C Programming"},
-        };
-
-        base.OnInitialized();
-    }
-
+    [Parameter] public List<Book> bookList { get; set;}
     Book Books = new Book
         {
             Id = 1,
