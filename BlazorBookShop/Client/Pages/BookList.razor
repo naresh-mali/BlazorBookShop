@@ -1,21 +1,29 @@
 ﻿@page "/Books"
 <h3>Book List</h3>
-<div>
-    @foreach (var book in bookList)
-    {
-        <p><b>@book.Title</b></p>
-    }
-    @for (int i = 0; i < bookList.Count; i++)
-    {
-        <p><b>@(i+1). @bookList[i].Title</b></p>
-    }
-</div>
+@if (bookList != null)
+{
+    <div>
+        @foreach (var book in bookList)
+        {
+            <p><b>@book.Title</b></p>
+        }
+        @for (int i = 0; i < bookList.Count; i++)
+        {
+            <p><b>@(i + 1). @bookList[i].Title</b></p>
+        }
+    </div>
+}
+else
+{
+    <img src="https://loading.io/assets/mod/spinner/spinner/lg.gif" />
+}
 
 @code {
     List<Book> bookList;
 
-    protected override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
+        await Task.Delay(3000);
         bookList = new List<Book>
         {
             new Book{Id=1,Title="C# Programming"},
@@ -28,10 +36,6 @@
         base.OnInitialized();
     }
 
-    
-    
-    
-    
     Book Books = new Book
         {
             Id = 1,
