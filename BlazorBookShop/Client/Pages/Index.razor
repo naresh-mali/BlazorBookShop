@@ -5,23 +5,24 @@
 </p>
 <p>Add 2 Nubers 2+2 =@(2+2)</p>
 <button @onclick=@ConsoleClass.Method1>Click me</button>
-<BookList bookList="bookList" />
-
+<BookList bookList="bookList" >
+    <span style="color:red">Book List is Empty  </span>
+</BookList>
 @code{
     string name = "Naresh Mali";
     List<Book> bookList;
-    protected async override Task OnInitializedAsync()
-    {
-        await Task.Delay(3000);
-        bookList = new List<Book>
-        {
-            new Book{Id=1,Title="C# Programming"},
-            new Book{Id=2,Title="Java Programming"},
-            new Book{Id=3,Title="Python Programming"},
-            new Book{Id=4,Title="C++ Programming"},
-            new Book{Id=5,Title="C Programming"},
-        };
+    // protected async override Task OnInitializedAsync()
+    // {
+    //     await Task.Delay(30f00);
+    //     bookList = new List<Book>
+    //     {
+    //         new Book{Id=1,Title="C# Programming"},
+    //         new Book{Id=2,Title="Java Programming"},
+    //         new Book{Id=3,Title="Python Programming"},
+    //         new Book{Id=4,Title="C++ Programming"},
+    //         new Book{Id=5,Title="C Programming"},
+    //     };
 
-        base.OnInitialized();
-    }
+    //     base.OnInitialized();
+    // }
 }

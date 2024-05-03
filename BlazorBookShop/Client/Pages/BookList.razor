@@ -16,11 +16,20 @@
 }
 else
 {
-    <img src="https://loading.io/assets/mod/spinner/spinner/lg.gif" />
+    @if (ChildContent == null)
+    {
+        <img src="https://cdn.pixabay.com/animation/2023/10/08/03/19/03-19-26-213_512.gif" />
+    }
+    else
+    {
+        @ChildContent
+    }
+
 }
 
 @code {
     [Parameter] public List<Book> bookList { get; set;}
+    [Parameter] public RenderFragment ChildContent { get; set; }
     public bool isShow = false;
     private void DeleteBook(Book book)
     {
