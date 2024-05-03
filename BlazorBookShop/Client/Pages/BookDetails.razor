@@ -3,18 +3,13 @@
     <b>@book.Title</b>
     @if (IsShow)
     {
-        <button @onclick="DeleteMethod">Delete</button>
+        <button @onclick="@(()=>DeleteBook.InvokeAsync(book))">Delete</button>
     }
     
 </p>
 @code {
     [Parameter] public Book book { get; set; }
     [Parameter] public bool IsShow { get; set; } = false;
-
-    
-    
-    public void DeleteMethod()
-    {
-        Console.WriteLine($"Content Deleted{book.Title}");
-    }
+    [Parameter] public EventCallback<Book> DeleteBook { get; set; }
+        
 }

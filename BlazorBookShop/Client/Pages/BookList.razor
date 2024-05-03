@@ -6,7 +6,7 @@
     <div>
         @foreach (var book in bookList)
         {
-           <BookDetails book="book" IsShow="isShow"/>
+            <BookDetails book="book" IsShow="isShow" DeleteBook="DeleteBook" />
         }
         @* @for (int i = 0; i < bookList.Count; i++)
         {
@@ -22,6 +22,11 @@ else
 @code {
     [Parameter] public List<Book> bookList { get; set;}
     public bool isShow = false;
+    private void DeleteBook(Book book)
+    {
+        bookList.Remove(book);
+    }
+
     Book Books = new Book
         {
             Id = 1,
