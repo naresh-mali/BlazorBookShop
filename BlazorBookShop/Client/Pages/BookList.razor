@@ -1,0 +1,40 @@
+﻿@page "/Books"
+<h3>Book List</h3>
+<div>
+    @foreach (var book in bookList)
+    {
+        <p><b>@book.Title</b></p>
+    }
+    @for (int i = 0; i < bookList.Count; i++)
+    {
+        <p><b>@(i+1). @bookList[i].Title</b></p>
+    }
+</div>
+
+@code {
+    List<Book> bookList;
+
+    protected override void OnInitialized()
+    {
+        bookList = new List<Book>
+        {
+            new Book{Id=1,Title="C# Programming"},
+            new Book{Id=2,Title="Java Programming"},
+            new Book{Id=3,Title="Python Programming"},
+            new Book{Id=4,Title="C++ Programming"},
+            new Book{Id=5,Title="C Programming"},
+        };
+
+        base.OnInitialized();
+    }
+
+    
+    
+    
+    
+    Book Books = new Book
+        {
+            Id = 1,
+            Title = "C# Programming",
+        };
+}
