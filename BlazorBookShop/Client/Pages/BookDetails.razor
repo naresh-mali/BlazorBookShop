@@ -1,0 +1,20 @@
+﻿
+<p>
+    <b>@book.Title</b>
+    @if (IsShow)
+    {
+        <button @onclick="DeleteMethod">Delete</button>
+    }
+    
+</p>
+@code {
+    [Parameter] public Book book { get; set; }
+    [Parameter] public bool IsShow { get; set; } = false;
+
+    
+    
+    public void DeleteMethod()
+    {
+        Console.WriteLine($"Content Deleted{book.Title}");
+    }
+}

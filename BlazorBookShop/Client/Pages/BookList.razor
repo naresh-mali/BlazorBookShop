@@ -2,10 +2,11 @@
 <h3>Book List</h3>
 @if (bookList != null)
 {
+    <Input type="checkbox" @onchange="@(()=>isShow=!isShow)"/>
     <div>
         @foreach (var book in bookList)
         {
-            <p><b>@book.Title</b></p>
+           <BookDetails book="book" IsShow="isShow"/>
         }
         @* @for (int i = 0; i < bookList.Count; i++)
         {
@@ -20,6 +21,7 @@ else
 
 @code {
     [Parameter] public List<Book> bookList { get; set;}
+    public bool isShow = false;
     Book Books = new Book
         {
             Id = 1,
